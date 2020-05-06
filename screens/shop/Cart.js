@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Button, Text, StyleSheet } from 'react-native';
 
 const Cart = props => { 
     return (
         <View style={styles.content}>
             <Text>cart screen</Text>
+            <Button title="next" onPress={() => props.navigation.navigate('ProductDetailScreen')} />
         </View>
     );
 };
