@@ -1,9 +1,11 @@
 import React from 'react';
 import { ScrollView, Button, Image, View, Text, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import Colors from '../../constants/Colors';
 import * as cartActions from '../../store/actions/cart';
+import HeaderButton from '../../components/UI/HeaderButton';
 
 const ProductDetail = props => {
     const productId = props.navigation.getParam('productId');

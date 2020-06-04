@@ -1,38 +1,48 @@
 import React from 'react';
-import { View, Button, Text, Image, StyleSheet, Platform } from 'react-native';
-import { TouchableNativeFeedback, TouchableOpacity } from 'react-native-gesture-handler';
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    TouchableOpacity,
+    TouchableNativeFeedback,
+    Platform
+} from 'react-native';
 
-import Colors from '../../constants/Colors';
+import Card from '../UI/Card';
 
 const ProductItem = props => {
-    let TouchElement = TouchableOpacity;
+    let TouchableCmp = TouchableOpacity;
 
     if (Platform.OS === 'android' && Platform.Version >= 21) {
-        TouchElement = TouchableNativeFeedback;
+        TouchableCmp = TouchableNativeFeedback;
     }
 
     return (
-        <View style={styles.itemContainer}>
-            <TouchElement onPress={props.onViewDetail} useForeground>
-                <View style={styles.imageContainer}>
-                    <Image source={{ uri: props.imageUrl }}
-                        style={styles.imageStyle} />
-                </View>
-                <View style={styles.details}>
-                    <Text style={styles.title}>{props.title}</Text>
-                    <Text style={styles.price}>${props.price.toFixed(2)}</Text>
-                </View>
-                <View style={styles.actions}>
-                    <Button color={Colors.primary} title="detail" onPress={props.onViewDetail} />
-                    <Button color={Colors.primary} title="add to cart" onPress={props.onAddToCart} />
-                </View>
-            </TouchElement>
+        <View style={styles.product}>
+            <View style={styles.touchable}>
+                <TouchableCmp onPress={props.onSelect} useForeground>
+                    <View>
+                        <View style={styles.imageContainer}>
+                            <Image style={styles.image} source={{ uri: props.image }} />
+                        </View>
+                        <View style={styles.details}>
+                            <Text style={styles.title}>{props.title}</Text>
+                            <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+                        </View>
+                        <View style={styles.actions}>
+                            {props.children}
+                        </View>
+                    </View>
+                </TouchableCmp>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    itemContainer: {
+    product: {
+        height: 300,
         shadowColor: 'black',
         shadowOpacity: 0.26,
         shadowOffset: { width: 0, height: 2 },
@@ -40,16 +50,11 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 10,
         backgroundColor: 'white',
-        height: 300,
-        margin: 20,
-        overflow: 'hidden'
+        margin: 20
     },
-    actions: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '25%',
-        paddingHorizontal: 20
+    touchable: {
+        borderRadius: 10,
+        overflow: 'hidden'
     },
     imageContainer: {
         width: '100%',
@@ -58,24 +63,29 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         overflow: 'hidden'
     },
-    imageStyle: {
+    image: {
         width: '100%',
         height: '100%'
+    },
+    details: {
+        alignItems: 'center',
+        height: '15%',
+        padding: 10
     },
     title: {
         fontSize: 18,
         marginVertical: 4
     },
     price: {
-        fontFamily: 'open-sans',
         fontSize: 14,
-        color: '#888',
-        fontFamily: 'open-sans-bold'
+        color: '#888'
     },
-    details: {
+    actions: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        height: '15%',
-        padding: 10
+        height: '25%',
+        paddingHorizontal: 20
     }
 });
 
