@@ -1,50 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { enableScreens } from 'react-native-screens';
 import { Provider } from 'react-redux';
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
-import { composeWithDevTools } from 'redux-devtools-extension'
 import ReduxThunk from 'redux-thunk';
 
-import ShopNavigator from './navigation/ShopNavigator';
-import productReducer from './store/reducers/products';
-import cartReducer from './store/reducers/cart';
-import orderReducer from './store/reducers/order';
-import authReducer from './store/reducers/auth';
-import NavigationContainer from './navigation/NavigationContainer'; 
+import PlacesNavigator from './navigation/PlacesNavigator';
+import placesReducer from './store/places-reducer';
+import { init } from './helpers/db';
 
-enableScreens();
+init()
+  .catch(err => {
+    console.log(err);
+  })
 
 const rootReducer = combineReducers({
-  products: productReducer,
-  carts: cartReducer,
-  orders: orderReducer,
-  auth: authReducer
+  places: placesReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
-const fetchFonts = () => {
-  return Font.loadAsync({
-    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
-  });
-};
-
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-
-  if (!fontLoaded) {
-    return <AppLoading
-      startAsync={fetchFonts}
-      onFinish={() => setFontLoaded(true)}
-    />
-  }
-
-  return (
-    <Provider store={store}>
-      <ShopNavigator />
-    </Provider>
-  );
-}
+  return <Provider store={store}>
+    <PlacesNavigator />
+  </Provider>
+};
