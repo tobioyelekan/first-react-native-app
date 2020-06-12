@@ -14,6 +14,7 @@
     "expo": "^37.0.0",
     "expo-file-system": "~8.1.0",
     "expo-font": "~8.1.0",
+    "expo-google-sign-in": "~8.1.0",
     "expo-image-picker": "~8.1.0",
     "expo-linear-gradient": "^8.1.0",
     "expo-location": "~8.1.0",
@@ -37,7 +38,8 @@
     "react-navigation-tabs": "^2.8.12",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rn-placeholder": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

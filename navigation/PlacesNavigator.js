@@ -6,9 +6,11 @@ import PlacesListScreen from '../screens/PlacesListScreen';
 import PlaceDetailScreen from '../screens/PlaceDetailScreen';
 import MapScreen from '../screens/MapScreen';
 import NewPlaceScreen from '../screens/NewPlaceScreen';
+import GoogleSignIn from '../screens/GoogleSignIn';
 import Colors from '../constants/Colors';
 
 const PlacesNavigator = createStackNavigator({
+    GoogleSignIn: GoogleSignIn,
     PlaceList: PlacesListScreen,
     PlaceDetail: PlaceDetailScreen,
     Map: MapScreen,

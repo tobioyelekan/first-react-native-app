@@ -2564,6 +2564,13 @@ expo-font@~8.1.0:
     fbjs "1.0.0"
     fontfaceobserver "^2.1.0"
 
+expo-google-sign-in@~8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/expo-google-sign-in/-/expo-google-sign-in-8.1.0.tgz#87f609f9250fea02ea5373286381f95f99c46187"
+  integrity sha512-ek/na9xL4yS76lqGwm79i1LLdqw8VDbr5ywd9l+ffR68r5MSIS18iz0cZVPsLH5W0V6QT8FnzqMqW0luFMCzAg==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-image-picker@~8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.1.0.tgz#014e4f4aaef4c1daf56d13de27a41ef78660aa15"
@@ -5560,6 +5567,11 @@ rn-host-detect@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/rn-host-detect/-/rn-host-detect-1.2.0.tgz#8b0396fc05631ec60c1cb8789e5070cdb04d0da0"
   integrity sha512-btNg5kzHcjZZ7t7mvvV/4wNJ9e3MPgrWivkRgWURzXL0JJ0pwWlU4zrbmdlz3HHzHOxhBhHB4D+/dbMFfu4/4A==
+
+rn-placeholder@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rn-placeholder/-/rn-placeholder-3.0.0.tgz#d51063cfc20cf702547205b936d934e92c4941b0"
+  integrity sha512-ydlIDoth4uvj9PPEOZLZxgNtNJlmUR49IGFtRKM7FWcKuMG2hC89kIPa8xRCO5vfxSDPwMGTyshYGGsQXOJJNA==
 
 rsvp@^4.8.4:
   version "4.8.5"
